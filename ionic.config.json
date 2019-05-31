@@ -1,5 +1,7 @@
 {
   "name": "noti-U",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
