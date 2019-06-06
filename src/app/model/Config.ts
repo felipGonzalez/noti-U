@@ -2,14 +2,23 @@ export class Config {
     private ip: string;
     private port:string; 
 
+    private static config: Config;
+
     constructor() {
-        this.ip = '192.168.1.19';
+        this.ip = '192.168.1.28';
         this.port = "3000";
+    }
+
+    public static getInstance():Config {
+      if( this.config === undefined ) {
+            this.config = new Config();
+        }
+        return this.config;
     }
 
     
     public  getIp() : string {
-        return `http://${this.ip}:`;
+        return this.ip;
     }
 
     
@@ -18,12 +27,12 @@ export class Config {
     }
 
     
-    public set setIp(ip : string) {
+    public  setIp(ip : string) {
         this.ip = ip;
     }
 
     
-    public set setPort(port : string) {
+    public  setPort(port : string) {
         this.port = port;
     }
 

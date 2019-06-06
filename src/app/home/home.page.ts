@@ -21,9 +21,9 @@ export class HomePage implements OnInit {
   listPublic : Array<Publicacion>;
   listUserPublic : Array<UserPublic>;
   isOk: boolean;
+  private config: Config
 
-  constructor(private geolocation: Geolocation, private camera: Camera, private file: File, private serve:ServiceService,
-    private config: Config) {
+  constructor(private geolocation: Geolocation, private camera: Camera, private file: File, private serve:ServiceService) {
       this.isOk = false;
 
   }
@@ -70,7 +70,7 @@ export class HomePage implements OnInit {
 
 
   public loadPublic() {
-    this.serve.getPublic(this.config.getUrl()+'/public').subscribe(
+    this.serve.getPublic(Config.getInstance().getUrl()+'/public').subscribe(
       res => {
        this.listPublic = res;
        console.log(this.listPublic);
@@ -81,7 +81,7 @@ export class HomePage implements OnInit {
   }
 
   public loadUserPublic() {
-    this.serve.getPublicUser(this.config.getUrl()+'/userPublic').subscribe(
+    this.serve.getPublicUser(Config.getInstance().getUrl()+'/userPublic').subscribe(
       res => {
        this.listUserPublic = res;
        console.log(this.listUserPublic);
@@ -92,7 +92,7 @@ export class HomePage implements OnInit {
   }
 
   getUrl(img) {
-    return this.config.getUrl()+"/img"+img;
+    return Config.getInstance().getUrl()+"/img"+img;
   }
 
 

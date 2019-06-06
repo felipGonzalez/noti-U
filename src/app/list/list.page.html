@@ -4,24 +4,19 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+        Opciones de Red
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
+    <div class="container">
+      <ion-label>Url</ion-label>
+      <ion-input type="text" placeholder="ip" [(ngModel)]="ip"></ion-input>
+      <ion-label>port</ion-label>
+      <ion-input type="number" placeholder="port" [(ngModel)]="port"></ion-input>
+      <ion-button (click)="actuallyData()">
+        Actualizar
+      </ion-button>
     </div>
-  -->
 </ion-content>

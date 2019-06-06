@@ -16,7 +16,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Congiguracion',
+      title: 'Opciones de Red',
       url: '/list',
       icon: 'build'
     }
