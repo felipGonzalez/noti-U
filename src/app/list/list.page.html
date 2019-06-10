@@ -6,15 +6,22 @@
     <ion-title>
         Opciones de Red
     </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <div class="container">
-      <ion-label>Url</ion-label>
-      <ion-input type="text" placeholder="ip" [(ngModel)]="ip"></ion-input>
-      <ion-label>port</ion-label>
-      <ion-input type="number" placeholder="port" [(ngModel)]="port"></ion-input>
+      <ion-item>
+          <ion-label>Url</ion-label>
+          <ion-input type="text" placeholder="ip" [(ngModel)]="ip"></ion-input>
+            
+      </ion-item>
+      <ion-item>
+          <ion-label>port</ion-label>
+          <ion-input type="number" placeholder="port" [(ngModel)]="port"></ion-input>
+            
+        </ion-item>
       <ion-button (click)="actuallyData()">
         Actualizar
       </ion-button>

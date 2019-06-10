@@ -5,7 +5,7 @@ export class Config {
     private static config: Config;
 
     constructor() {
-        this.ip = '192.168.1.28';
+        this.ip = '127.0.0.1';
         this.port = "3000";
     }
 

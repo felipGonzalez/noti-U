@@ -6,6 +6,9 @@ import { ServiceService } from '../services/service.service';
 import { Publicacion } from '../model/publicacion';
 import { UserPublic } from '../model/UserPublic';
 import { Config } from '../model/Config';
+import { ModalController, NavController } from '@ionic/angular';
+import { ViewPostPage } from '../view-post/view-post.page';
+import { NewPostPage } from '../new-post/new-post.page';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +24,13 @@ export class HomePage implements OnInit {
   listPublic : Array<Publicacion>;
   listUserPublic : Array<UserPublic>;
   isOk: boolean;
+
+  newPost: NewPostPage;
+
   private config: Config
 
-  constructor(private geolocation: Geolocation, private camera: Camera, private file: File, private serve:ServiceService) {
+  constructor(private geolocation: Geolocation, private camera: Camera, private file: File,
+     private serve:ServiceService,public modalController: ModalController,private navCtrl: NavController) {
       this.isOk = false;
 
   }
@@ -91,9 +98,43 @@ export class HomePage implements OnInit {
     );
   }
 
-  getUrl(img) {
+  async presentModal(item:Publicacion) {
+    console.log(item.url_img);
+    console.log(this.getUrl(item.url_img));
+    
+    var modal = await this.modalController.create({
+      component: ViewPostPage,
+      componentProps: { 
+        titulo: item.titulo,
+        fecha: item.fecha,
+        url_img: this.getUrl(item.url_img),
+        longitud: item.longitud,
+        latitud: item.latitud,
+        descripcion : item.descripcion,
+        usuario : item.usuario
+       }
+    });
+
+
+
+    return await modal.present();
+    
+  }
+
+  
+
+  public getUrl(img) {
     return Config.getInstance().getUrl()+"/img"+img;
   }
+
+    abrirSegundaPag() {
+   
+  }
+
+  public pageNewPost() {
+    this.navCtrl.navigateForward("/new-post");
+  }
+  
 
 
 

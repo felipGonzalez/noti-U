@@ -14,7 +14,9 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'view-post', loadChildren: './view-post/view-post.module#ViewPostPageModule' },
+  { path: 'new-post', loadChildren: './new-post/new-post.module#NewPostPageModule' }
 ];
 
 @NgModule({

@@ -6,4 +6,5 @@ export class Publicacion{
    public descripcion: string; 
    public longitud: number;
    public latitud: number;
+   public usuario: string;
 }

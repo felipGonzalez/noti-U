@@ -16,6 +16,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { File } from '@ionic-native/file/ngx';  
+import { ViewPostPageModule } from './view-post/view-post.module';
+
 
 
 
@@ -29,7 +31,9 @@ import { File } from '@ionic-native/file/ngx';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ViewPostPageModule,
+    
   ],
   providers: [
     StatusBar,
@@ -39,6 +43,6 @@ import { File } from '@ionic-native/file/ngx';
     File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

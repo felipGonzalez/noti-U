@@ -23,8 +23,9 @@
                 <ion-img [src]="getUrl(item.url_img)"></ion-img>
                 <ion-card-header>
                   <ion-card-subtitle>{{item.fecha}}</ion-card-subtitle>
+                  <ion-card-subtitle>Publicado por : {{item.usuario}}</ion-card-subtitle>
                   <ion-card-title>{{item.titulo}}</ion-card-title>
-                  <ion-button color="warning" (click)="onClick()">
+                  <ion-button color="warning" (click)="presentModal(item)">
                     Ver mas...
                   </ion-button>
                 </ion-card-header>
@@ -36,15 +37,9 @@
        
   
         <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
-            <ion-fab-button color="warning" >
-              <ion-icon  name="share"></ion-icon>
+            <ion-fab-button color="warning" (click)="pageNewPost()">
+              <ion-icon  name="add"></ion-icon>
             </ion-fab-button>
-            <ion-fab-list side="top">
-              <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
-              <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-              <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-              <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-            </ion-fab-list>
-           </ion-fab>
+            </ion-fab>
   </ion-content>
   
