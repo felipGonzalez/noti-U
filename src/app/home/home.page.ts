@@ -132,7 +132,7 @@ export class HomePage implements OnInit {
   }
 
   public pageNewPost() {
-    this.navCtrl.navigateForward("/new-post");
+    this.navCtrl.navigateForward("/home/new-post");
   }
   
 
