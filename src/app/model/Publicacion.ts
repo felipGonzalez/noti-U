@@ -1,10 +1,11 @@
 export class Publicacion{
-   public id: number;
-   public   titulo: string;
-   public fecha: string;
+   public _id: string;
+   public  titulo: string;
+   public fecha: Date;
    public url_img: string;
    public descripcion: string; 
    public longitud: number;
    public latitud: number;
-   public usuario: string;
+   public id_usuario: string;
+   public nombre_usuario: string;
 }

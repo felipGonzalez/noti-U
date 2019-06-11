@@ -20,10 +20,10 @@
       <div *ngIf="isOk" class="container">
         <ion-list>
             <ion-card *ngFor="let item of listPublic" class="welcome-card">
-                <ion-img [src]="getUrl(item.url_img)"></ion-img>
+                <ion-img [src]="getUrl(item.titulo,item.id_usuario)"></ion-img>
                 <ion-card-header>
-                  <ion-card-subtitle>{{item.fecha}}</ion-card-subtitle>
-                  <ion-card-subtitle>Publicado por : {{item.usuario}}</ion-card-subtitle>
+                  <ion-card-subtitle>{{item.fecha | date:'medium'}}</ion-card-subtitle>
+                  <ion-card-subtitle>Publicado por : {{item.nombre_usuario}}</ion-card-subtitle>
                   <ion-card-title>{{item.titulo}}</ion-card-title>
                   <ion-button color="warning" (click)="presentModal(item)">
                     Ver mas...
@@ -40,6 +40,12 @@
             <ion-fab-button color="warning" (click)="pageNewPost()">
               <ion-icon  name="add"></ion-icon>
             </ion-fab-button>
-            </ion-fab>
+        </ion-fab>
+
+        <ion-fab  vertical="bottom" horizontal="start" slot="fixed">
+          <ion-fab-button color="success" (click)="relaadPost()">
+            <ion-icon  name="refresh"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
   </ion-content>
   

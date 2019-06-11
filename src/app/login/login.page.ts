@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../services/service.service';
 import { Config } from '../model/Config';
 import { NavController } from '@ionic/angular';
+import { UsuarioActual } from '../model/UsuarioActual';
 
 @Component({
   selector: 'app-login',
@@ -24,12 +25,14 @@ export class LoginPage implements OnInit {
   public login(form) {
     console.log(form.controls.email.value);
     console.log(form.controls.password.value);
-    this.isLogin = false;
-
     this.serve.verifyUser(form.controls.email.value,form.controls.password.value,Config.getInstance().getUrl()+'/verifyUser').subscribe(
       res => {
-        console.log(res)
-        if(res === true) {
+        
+        if(res !== null) {
+          UsuarioActual.getInstance()._id = res._id;
+          UsuarioActual.getInstance().nombre = res.nombre;
+          UsuarioActual.getInstance().correo = res.correo;
+          UsuarioActual.getInstance().contraseña = res.contraseña;
           this.navCtrl.navigateForward("/home");
           
         }else {

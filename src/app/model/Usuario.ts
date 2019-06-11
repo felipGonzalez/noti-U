@@ -1,5 +1,5 @@
 export class Usuario {
-    public id: number;
+    public _id: string;
     public nombre: string;
     public correo: string;
     public contraseña: string;
